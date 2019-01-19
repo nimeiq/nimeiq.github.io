@@ -249,6 +249,288 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/18/jQuery/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="nimeiqq">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="nimqq">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/18/jQuery/" itemprop="url">jQuery</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-18T20:47:49+08:00">
+                2019-01-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/js/" itemprop="url" rel="index">
+                    <span itemprop="name">js</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>#jQuery</p>
+<blockquote>
+<p>jQuery是js的一个库，封装了我们开发过程中常用的一些功能<br>  代替原生js</p>
+</blockquote>
+<p>###使用jQuery<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">  //下载jQuery</span><br><span class="line">`npm install jquery`</span><br><span class="line">  // 引入jQuery</span><br><span class="line">&lt;script src=&quot;jquery-1.12.2.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">  // 页面加载完成之后</span><br><span class="line">$(function () &#123; &#125;)</span><br></pre></td></tr></table></figure></p>
+<p>###jQuery 和原生 Dom 之间转换</p>
+<ul>
+<li>Dom转换jQuery  –&gt;  $(Dom元素)</li>
+<li>jQuery转换Dom  –&gt;  $(btnObj).get[0]</li>
+</ul>
+<p>###1.5.1    jQuery选择器</p>
+<ul>
+<li><p>####基本选择器</p>
+<ul>
+<li><strong>id选择器</strong>         $(‘#box’)  </li>
+<li><strong>标签选择器</strong>       $(‘div’)   </li>
+<li><strong>类选择器</strong>         $(‘.cls’)</li>
+</ul>
+</li>
+<li><p>####层级选择器</p>
+<ul>
+<li><strong>后代选择器</strong>       $(‘#box li’)</li>
+<li><strong>子代选择器</strong>       $(‘#box&gt;li’)</li>
+</ul>
+</li>
+<li><p>####索引选择器</p>
+<ul>
+<li><strong>:eq(index)</strong><br>  $(“li:eq(2)”)  // 选择li元素中索引号为2的一个元素</li>
+<li><strong>:odd</strong><br>  $(“li:odd”)   // 选择li元素中索引号为奇数的所有元素</li>
+<li><strong>:even</strong><br>  $(“li:odd”) // 选择li元素中索引号为偶数</li>
+<li><strong>:gt(index)</strong><br>  $(“li:eq(2)”)   // 选择li元素中索引号大于2的一个元素</li>
+<li><strong>:lt(index)</strong><br>  $(“li:eq(2)”)   // 选择li元素中索引号小于2的一个元素</li>
+</ul>
+</li>
+<li><p>####选择元素</p>
+<ul>
+<li><strong>find()</strong><br>  $(“#box”).find(“li”)   // 查找指定元素的所有后代元素（子子孙孙）</li>
+<li><strong>children()</strong><br>  $(“#box”).children(“ul”)    查找指定元素的直接子元素（亲儿子元素）</li>
+<li><strong>siblings()</strong><br>  $(“#box”).siblings()  // 查找所有兄弟元素（不包括自己）</li>
+<li><strong>index()</strong><br>  var index = $(this).index()   // 获取指定元素的索引号（从0开始的）</li>
+</ul>
+</li>
+</ul>
+<p>###属性</p>
+<ul>
+<li><p><strong>text()</strong> </p>
+<ul>
+<li>$(“#box”).text()        // 获取文本</li>
+<li>$(“#box”).text(“文本”)    // 设置文本</li>
+</ul>
+</li>
+<li><p><strong>html()</strong> </p>
+<ul>
+<li>$(“#box”).html()   // 获取文本</li>
+<li>$(“#box”).html(“文本”)   // 设置文本</li>
+</ul>
+</li>
+<li><p><strong>val()</strong> </p>
+<ul>
+<li>$(“#box”).val()   // 获取元素内容</li>
+<li>$(“#box”).val(“文本”)   // 设置元素内容</li>
+</ul>
+</li>
+<li><p><strong>css()</strong></p>
+<ul>
+<li>获取样式值<br>   $(#box).css(“样式名”)</li>
+<li>设置一个样式<br>   $(#box).css(“样式名”，”样式值”)  </li>
+<li>设置多个样式<br>   $(#box).css({ “样式名1”：”样式值1”，”样式名2”，”样式名2”})</li>
+</ul>
+</li>
+<li><p><strong>attr()</strong>        </p>
+<blockquote>
+<p>设置或返回被选元素的属性和值<br>attr()  值只可以为 string</p>
+</blockquote>
+<ol>
+<li>返回属性的值<br><code>$(selector).attr(属性)</code></li>
+<li>设置属性和值<br><code>$(selector).attr(属性,值)</code></li>
+<li>使用函数设置属性和值<br><code>$(selector).attr(属性,function(index,值))</code></li>
+</ol>
+</li>
+<li><p><strong>prop()</strong>  </p>
+<blockquote>
+<p>设置或返回被选元素的属性和值<br>prop()  值可以是 string 也可以是 arr</p>
+</blockquote>
+<ol>
+<li>返回属性的值<br><code>$(selector).prop(属性)</code></li>
+<li>设置属性和值<br><code>$(selector).prop(属性,值)</code></li>
+<li>使用函数设置属性和值<br><code>$(selector).prop(属性,function(index,值))</code></li>
+</ol>
+</li>
+<li><p><strong>addClass()</strong></p>
+<blockquote>
+<p> 给元素添加类名,以前的class依然存在</p>
+</blockquote>
+</li>
+</ul>
+<p><code>$(selector).addClass(类名)</code></p>
+<ul>
+<li><strong>removeClass()</strong><blockquote>
+<p> 删除元素指定类名</p>
+</blockquote>
+</li>
+</ul>
+<p><code>$(selector).removeClass(类名)</code></p>
+<ul>
+<li><strong>toggleClass</strong><blockquote>
+<p>如果元素有指定类则会删除；如果没有指定类则会添加</p>
+</blockquote>
+</li>
+</ul>
+<p><code>$(selector).toggleClass(类名)</code></p>
+<p>###文档处理</p>
+<ul>
+<li><p><strong>append()  appendTo()</strong><br>   被选中 元素内部 后面/前面 添加指定内容<br><code>$(父元素).append(需要插入内容)</code>    <code>$(需要插入内容).appendTo(父元素)</code></p>
+</li>
+<li><p><strong>prepend()  prependTo()</strong><br>   被选中 元素内部 后面/前面 添加指定内容<br><code>$(父元素).prepend(需要插入内容)</code></p>
+</li>
+<li><p><strong>after()  before()</strong><br>   被选中元素 结尾/前面 添加指定内容<br><code>$(元素).after(需要插入内容)</code>    <code>$(元素).before(需要插入内容)</code></p>
+<ul>
+<li><p><strong>insertAfter()  insertBefore()</strong><br> 把所有匹配的元素插入到另一个、指定的元素元素集合的后面/前面<br><code>$(&quot;p&quot;).insertAfter(&quot;#foo&quot;)</code>  <code>$(&quot;p&quot;).insertBefore(&quot;#foo&quot;)</code></p>
+</li>
+<li><p><strong>replaceWith()</strong><br> 将所有匹配的元素替换成指定的HTML或DOM元素。<br> <code>$(&quot;p&quot;).replaceWith(&quot;&lt;b&gt;Paragraph. &lt;/b&gt;&quot;);</code></p>
+</li>
+<li><strong>replaceAll()</strong><br> 用匹配的元素替换掉所有 selector匹配到的元素。<br> <code>$(&quot;&lt;b&gt;Paragraph. &lt;/b&gt;&quot;).replaceAll(&quot;p&quot;);</code></li>
+</ul>
+</li>
+</ul>
+<p>###筛选</p>
+<p>###动态添加元素</p>
+<ul>
+<li><p>原生   –&gt; </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var box = document.getElementById(&apos;box&apos;);</span><br><span class="line">box.appendChild(p)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>jQuery<br>var p = $(“</p><h1>动态添加</h1>“)<br>$(‘#box’).append(p)<p></p>
+</li>
+</ul>
+<p>###使用</p>
+<ul>
+<li>Dom   –&gt; Dom.onclick</li>
+<li>jQuery  –&gt; $(“元素”).on(“click”)</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/14/创建对象/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -741,7 +1023,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -763,7 +1045,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>
