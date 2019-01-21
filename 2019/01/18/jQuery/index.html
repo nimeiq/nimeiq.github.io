@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="nimqq">
 <meta property="og:description" content="#jQuery  jQuery是js的一个库，封装了我们开发过程中常用的一些功能  代替原生js  ###使用jQuery123456  //下载jQuery`npm install jquery`  // 引入jQuery&amp;lt;script src=&amp;quot;jquery-1.12.2.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;  // 页面加载完成之后$(function ()">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-19T12:20:36.801Z">
+<meta property="og:updated_time" content="2019-01-19T13:36:52.492Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jQuery">
 <meta name="twitter:description" content="#jQuery  jQuery是js的一个库，封装了我们开发过程中常用的一些功能  代替原生js  ###使用jQuery123456  //下载jQuery`npm install jquery`  // 引入jQuery&amp;lt;script src=&amp;quot;jquery-1.12.2.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;  // 页面加载完成之后$(function ()">
@@ -381,7 +381,12 @@
 <li><strong>find()</strong><br>  $(“#box”).find(“li”)   // 查找指定元素的所有后代元素（子子孙孙）</li>
 <li><strong>children()</strong><br>  $(“#box”).children(“ul”)    查找指定元素的直接子元素（亲儿子元素）</li>
 <li><strong>siblings()</strong><br>  $(“#box”).siblings()  // 查找所有兄弟元素（不包括自己）</li>
+<li><strong>next()</strong><pre><code>$(&quot;#box&quot;).next()  // 查找下一个兄弟元素
+</code></pre></li>
+<li><strong>prev()</strong><br>  $(“#box”).prev()  // 查找上一个兄弟元素</li>
 <li><strong>index()</strong><br>  var index = $(this).index()   // 获取指定元素的索引号（从0开始的）</li>
+<li><strong>first()         last()</strong><br>获取第一个元素     获取最后个元素<br>  <code>$(&#39;li&#39;).first()   $(&#39;li&#39;).last()</code></li>
+<li><strong>hasClass(class)</strong><br>  检查当前的元素是否含有某个特定的类<br>  <code>$(this).hasClass(&quot;protected&quot;)</code></li>
 </ul>
 </li>
 </ul>
@@ -469,7 +474,10 @@
 </ul>
 </li>
 </ul>
-<p>###筛选</p>
+<p>###事件</p>
+<ul>
+<li>change</li>
+</ul>
 <p>###动态添加元素</p>
 <ul>
 <li><p>原生   –&gt; </p>
@@ -513,8 +521,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/14/创建对象/" rel="next" title="q">
-                <i class="fa fa-chevron-left"></i> q
+              <a href="/2018/12/24/左边盒子固定，右边盒子自适应/" rel="next" title="左边盒子固定，右边盒子自适应">
+                <i class="fa fa-chevron-left"></i> 左边盒子固定，右边盒子自适应
               </a>
             
           </div>
@@ -522,6 +530,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/01/21/创建对象/" rel="prev" title="创建对象">
+                创建对象 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -610,7 +622,7 @@
               
               
               <div class="site-state-item site-state-categories">
-                <a href="/about/index.html">
+                <a href="/categories/index.html">
                   <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
