@@ -624,7 +624,16 @@
       
         
           
-            <h1 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h1>
+            <h1 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h1><blockquote>
+<p>不再操作DOM，Vue.js是一套构建用户界面的框架</p>
+</blockquote>
+<h3 id="MVC-Model-View-Controller"><a href="#MVC-Model-View-Controller" class="headerlink" title="MVC(Model View Controller)"></a>MVC(Model View Controller)</h3><p>M:数据层<br>V:视图层<br>C:控制层(业务逻辑)</p>
+<h3 id="MVVM"><a href="#MVVM" class="headerlink" title="MVVM"></a>MVVM</h3><ul>
+<li>前端视图层的分层开发思想，把每个页面分开; </li>
+<li>提供数据的双向绑定</li>
+<li>VM是核心部分，处理数据双向绑定</li>
+</ul>
+
           
         
       
@@ -1237,7 +1246,7 @@
       
         
           
-            <p>#左右盒子自适应<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;father&quot;&gt;</span><br><span class="line">  &lt;div class=&quot;left&quot;&gt;</span><br><span class="line">    &lt;h3&gt;left&lt;/h3&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">  &lt;div class=&quot;right&quot;&gt;</span><br><span class="line">    &lt;h3&gt;right&lt;/h3&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+            <h1 id="盒子自适应的集中解决方式"><a href="#盒子自适应的集中解决方式" class="headerlink" title="盒子自适应的集中解决方式"></a>盒子自适应的集中解决方式</h1><h1 id="左右盒子自适应"><a href="#左右盒子自适应" class="headerlink" title="左右盒子自适应"></a>左右盒子自适应</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;father&quot;&gt;</span><br><span class="line">  &lt;div class=&quot;left&quot;&gt;</span><br><span class="line">    &lt;h3&gt;left&lt;/h3&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">  &lt;div class=&quot;right&quot;&gt;</span><br><span class="line">    &lt;h3&gt;right&lt;/h3&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
 <p>###1. display: inline-block<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">.father&#123;</span><br><span class="line">font-size: 0;</span><br><span class="line">&#125;</span><br><span class="line">.left,</span><br><span class="line">.right&#123;</span><br><span class="line">  display: inline-block;</span><br><span class="line">  height: 200px;</span><br><span class="line">  font-size: 16px;</span><br><span class="line">	vertical-align: top;</span><br><span class="line">&#125;</span><br><span class="line">.left &#123;</span><br><span class="line">  background: pink;</span><br><span class="line">  width: 200px;</span><br><span class="line">&#125;</span><br><span class="line">.right &#123;</span><br><span class="line">   background: green;</span><br><span class="line">   width: calc(100% - 200px);  // calc() : 动态计算长度值</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>###2. float<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">.father &#123;</span><br><span class="line">    overflow: hidden;</span><br><span class="line">  &#125;</span><br><span class="line">  .left &#123;</span><br><span class="line">    float: left;</span><br><span class="line">    width: 200px;</span><br><span class="line">    background: pink;</span><br><span class="line">    height: 200px;</span><br><span class="line">  &#125;</span><br><span class="line">  .right &#123;</span><br><span class="line">    overflow: hidden;</span><br><span class="line">    margin-left: 200px;</span><br><span class="line">    background: green;</span><br><span class="line">    height: 200px;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p>
 <p>###3. table<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">.father &#123;</span><br><span class="line">  display: table;</span><br><span class="line">  width: 100%;</span><br><span class="line">&#125;</span><br><span class="line">.left &#123;</span><br><span class="line">  width: 200px;</span><br><span class="line">  display: table-cell;</span><br><span class="line">  background: pink;</span><br><span class="line">  height: 200px;</span><br><span class="line">&#125;</span><br><span class="line">.right &#123;</span><br><span class="line">  display: table-cell;</span><br><span class="line">  height: 200px;</span><br><span class="line">  background: green;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
@@ -1465,7 +1474,7 @@
               
               
               <div class="site-state-item site-state-categories">
-                <a href="/categories/index.html">
+                <a href="/about/index.html">
                   <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
