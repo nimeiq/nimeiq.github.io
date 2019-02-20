@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="继承,">
+  <meta name="keywords" content="Vue的指令,">
 
 
 
@@ -79,15 +79,18 @@
 
 
 
-<meta name="keywords" content="继承">
+<meta name="description" content="###Vue的指令 v-cloak插值表达式  解决数据为请求成功之前的闪烁问题  12345678&amp;lt;style&amp;gt;  [v-cloak]&amp;#123;    display: none;  &amp;#125;&amp;lt;/style&amp;gt;&amp;lt;div id=&amp;quot;app&amp;quot;&amp;gt;  &amp;lt;p v-cloak&amp;gt;&amp;#123;&amp;#123;msg&amp;#125;&amp;#125;&amp;lt;">
+<meta name="keywords" content="Vue的指令">
 <meta property="og:type" content="article">
-<meta property="og:title" content="js继承">
-<meta property="og:url" content="http://yoursite.com/2019/02/17/js继承/index.html">
+<meta property="og:title" content="Vue指令">
+<meta property="og:url" content="http://yoursite.com/2019/02/20/Vue指令/index.html">
 <meta property="og:site_name" content="nimqq">
+<meta property="og:description" content="###Vue的指令 v-cloak插值表达式  解决数据为请求成功之前的闪烁问题  12345678&amp;lt;style&amp;gt;  [v-cloak]&amp;#123;    display: none;  &amp;#125;&amp;lt;/style&amp;gt;&amp;lt;div id=&amp;quot;app&amp;quot;&amp;gt;  &amp;lt;p v-cloak&amp;gt;&amp;#123;&amp;#123;msg&amp;#125;&amp;#125;&amp;lt;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-17T04:01:15.953Z">
+<meta property="og:updated_time" content="2019-02-20T07:07:24.736Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="js继承">
+<meta name="twitter:title" content="Vue指令">
+<meta name="twitter:description" content="###Vue的指令 v-cloak插值表达式  解决数据为请求成功之前的闪烁问题  12345678&amp;lt;style&amp;gt;  [v-cloak]&amp;#123;    display: none;  &amp;#125;&amp;lt;/style&amp;gt;&amp;lt;div id=&amp;quot;app&amp;quot;&amp;gt;  &amp;lt;p v-cloak&amp;gt;&amp;#123;&amp;#123;msg&amp;#125;&amp;#125;&amp;lt;">
 
 
 
@@ -117,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/02/17/js继承/">
+  <link rel="canonical" href="http://yoursite.com/2019/02/20/Vue指令/">
 
 
 
 
 
-  <title>js继承 | nimqq</title>
+  <title>Vue指令 | nimqq</title>
   
 
 
@@ -250,7 +253,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/17/js继承/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/20/Vue指令/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="nimeiqq">
@@ -267,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">js继承</h1>
+          <h1 class="post-title" itemprop="name headline">Vue指令</h1>
         
 
         <div class="post-meta">
@@ -279,8 +282,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-17T11:59:41+08:00">
-                2019-02-17
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-20T15:03:21+08:00">
+                2019-02-20
               </time>
             
 
@@ -302,8 +305,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/js/" itemprop="url" rel="index">
-                    <span itemprop="name">js</span>
+                  <a href="/categories/Vue/" itemprop="url" rel="index">
+                    <span itemprop="name">Vue</span>
                   </a>
                 </span>
 
@@ -339,7 +342,74 @@
       
 
       
-        
+        <p>###Vue的指令</p>
+<p><strong>v-cloak</strong>插值表达式</p>
+<blockquote>
+<p>解决数据为请求成功之前的闪烁问题</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">  [v-cloak]&#123;</span><br><span class="line">    display: none;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;div id=&quot;app&quot;&gt;</span><br><span class="line">  &lt;p v-cloak&gt;&#123;&#123;msg&#125;&#125;&lt;/p&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="v-text"><a href="#v-text" class="headerlink" title="v-text"></a>v-text</h3><blockquote>
+<p>默认没有闪烁问题，不会展示标签内容</p>
+</blockquote>
+<figure class="highlight plain"><figcaption><span>v-text</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### v-html</span><br><span class="line">&gt; 可以将字符串内的内容解析成HTML格式</span><br><span class="line">```&lt;div v-html=&quot;msg2&quot;&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="v-bind"><a href="#v-bind" class="headerlink" title="v-bind:"></a>v-bind:</h3><blockquote>
+<p>绑定属性 ;简写 : ;只能实现数据的单向绑定  M –&gt; V</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;button v-bind:text=&quot;tip+&apos;111111111&apos;&quot;&gt;按钮&lt;/button&gt;</span><br><span class="line">&lt;button :text=&quot;tip+&apos;111111111&apos;&quot;&gt;按钮&lt;/button&gt;   // 简写</span><br><span class="line">&lt;button :class=[&apos;thin&apos;]&gt;按钮&lt;/button&gt;   // v-bind设置class</span><br></pre></td></tr></table></figure>
+<h3 id="v-on"><a href="#v-on" class="headerlink" title="v-on"></a>v-on</h3><blockquote>
+<p>绑定事件  简写 @</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;button v-on:click=&quot;show&quot;&gt;按钮&lt;/button&gt;</span><br><span class="line">&lt;button @click=&quot;show&quot;&gt;按钮&lt;/button&gt;  // 简写</span><br></pre></td></tr></table></figure>
+<h3 id="v-model"><a href="#v-model" class="headerlink" title="v-model"></a>v-model</h3><blockquote>
+<p>只能用在表单中  input、select、checkbox、textarea ; 实现数据的双向绑定   M –&gt; V   V –&gt; M</p>
+</blockquote>
+<p><code>&lt;input type=&quot;text&quot; style=&quot;width:100%;&quot; v-model=&quot;msg&quot;&gt;</code></p>
+<h3 id="v-for"><a href="#v-for" class="headerlink" title="v-for"></a>v-for</h3><blockquote>
+<p>在使用此指令时，必须有 :key属性，代表唯一身份,key的值是num/string，</p>
+</blockquote>
+<ul>
+<li><p><strong>1. 循环普通数组 </strong><br>v-for=”(item,i) in list” :key=”i” </p>
+
+</li>
+<li><p><strong>2. 循环对象数组 </strong><br>v-for=”item in list” :key=”item.id” </p>
+
+</li>
+<li><p><strong>3. 循环对象 </strong><br>v-for=”(val,key) in list” :key=”i” </p>
+
+
+</li>
+<li><p><strong>4. 迭代数字</strong><br>v-for=”count in 10”</p>
+<ul>
+<li>in 后面可跟 普通数组，对象数组，对象，数字</li>
+<li>循环时数字从1开始<h3 id="v-if-和-v-show"><a href="#v-if-和-v-show" class="headerlink" title="v-if 和 v-show"></a>v-if 和 v-show</h3><blockquote>
+<p>显示后隐藏元素</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>v-if</strong></p>
+<ul>
+<li>v-if=”flag = true”  —&gt; 显示<br>每次点击会删除或重新创建元素</li>
+</ul>
+<p><strong>v-show</strong></p>
+<ul>
+<li>v-show=”flag = false”  —&gt; 隐藏<br>每次点击会显示或隐藏元素<br><strong>当频繁切换使用时用v-show</strong></li>
+</ul>
+<h3 id="vue自定义指令"><a href="#vue自定义指令" class="headerlink" title="vue自定义指令"></a>vue自定义指令</h3><p>  vue.directive(指令名称,对象{bind:function(el){},inserted:function(el){},updata:function(){}},,,)</p>
+<ul>
+<li>bind : 当元素和指令关联上 调用 —&gt; 执行一次</li>
+<li>inserted : 当使用指令的元素插入页面时 调用 —&gt; 执行一次</li>
+<li>updata : 当页面更新时 调用 —&gt; 执行 最少一次，最多无数次</li>
+</ul>
+<h3 id="事件修饰符"><a href="#事件修饰符" class="headerlink" title="事件修饰符"></a>事件修饰符</h3><ul>
+<li><strong>.stop</strong>        阻止冒泡    @click.stop=”click”</li>
+<li><strong>.prevent</strong>     阻止默认行为  @click.prevent=”click”</li>
+<li><strong>.capture</strong>     捕获事件，从里到外</li>
+<li><strong>.self</strong>        只触发自己的事件，只会阻止自己的冒泡行为，对别人没有影响</li>
+<li><strong>.once</strong>        事件只触发一次</li>
+</ul>
+
       
     </div>
     
@@ -356,7 +426,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/继承/" rel="tag"># 继承</a>
+            <a href="/tags/Vue的指令/" rel="tag"># Vue的指令</a>
           
         </div>
       
@@ -369,8 +439,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/02/17/webpack/" rel="next" title="webpack">
-                <i class="fa fa-chevron-left"></i> webpack
+              <a href="/2019/02/17/js继承/" rel="next" title="js继承">
+                <i class="fa fa-chevron-left"></i> js继承
               </a>
             
           </div>
@@ -379,8 +449,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/02/20/Vue指令/" rel="prev" title="Vue指令">
-                Vue指令 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/02/20/生命周期/" rel="prev" title="生命周期">
+                生命周期 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -433,8 +503,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -496,6 +575,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#v-text"><span class="nav-number">1.</span> <span class="nav-text">v-text</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#v-bind"><span class="nav-number">2.</span> <span class="nav-text">v-bind:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#v-on"><span class="nav-number">3.</span> <span class="nav-text">v-on</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#v-model"><span class="nav-number">4.</span> <span class="nav-text">v-model</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#v-for"><span class="nav-number">5.</span> <span class="nav-text">v-for</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#v-if-和-v-show"><span class="nav-number">6.</span> <span class="nav-text">v-if 和 v-show</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vue自定义指令"><span class="nav-number">7.</span> <span class="nav-text">vue自定义指令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事件修饰符"><span class="nav-number">8.</span> <span class="nav-text">事件修饰符</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
