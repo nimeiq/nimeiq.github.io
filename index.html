@@ -911,125 +911,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/20/生命周期/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="nimeiqq">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="nimqq">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/02/20/生命周期/" itemprop="url">生命周期</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-20T15:11:29+08:00">
-                2019-02-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/20/Vue指令/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1331,7 +1212,40 @@
       
         
           
-            
+            <h1 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h1><h3 id="构造函数-原型对象-对象实例-三者之间的关系"><a href="#构造函数-原型对象-对象实例-三者之间的关系" class="headerlink" title="构造函数  原型对象  对象实例  三者之间的关系"></a>构造函数  原型对象  对象实例  三者之间的关系</h3><ul>
+<li>每个构造函数都拥有一个原型对象，<br>构造函数.prototype — 原型对象</li>
+<li>原型对象都有一个指向构造函数的指针，<br>原型对象.constructor — 构造函数</li>
+<li>实例都包含一个指向原型对象的内部指针<br>实例.<strong>proto</strong> — 原型对象</li>
+<li>每个实例是构造函数 new 出来<br>new 构造函数 — 实例    // 构造函数 new 创建</li>
+</ul>
+<h4 id="1-原型继承"><a href="#1-原型继承" class="headerlink" title="1. 原型继承"></a>1. 原型继承</h4><blockquote>
+<p>将父类的实例直接赋值给子类的原型对象 prototype<br>子类的原型对象被重写，父级的所有属性和方法也存在于子类的原型对象prototype</p>
+</blockquote>
+<p><strong>代码演示</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"> // 父类</span><br><span class="line">function Person() &#123;</span><br><span class="line">  this.name = &apos;zs&apos;;</span><br><span class="line">  this.age = 13;</span><br><span class="line">&#125;</span><br><span class="line">// 子类</span><br><span class="line">function Student() &#123;</span><br><span class="line">  this.gender = &apos;男&apos;;</span><br><span class="line">&#125;</span><br><span class="line">//父类的实例赋值给子类的原型对象</span><br><span class="line">Student.prototype = new Person();  // 这里改constructor 指向 Person</span><br><span class="line">// 改变constructor  </span><br><span class="line">Student.prototype.constructor = Student;   // constructo指向Student</span><br><span class="line">let s1 = new Student();</span><br><span class="line">console.log(s1.name,s1.age,s1.gender)  // zs 13 男</span><br><span class="line">console.dir(Student)</span><br></pre></td></tr></table></figure>
+<p><strong>原型继承bug</strong></p>
+<ul>
+<li>原型继承时将父类的实例赋值给子类，子类的原型会变成父类的实例，要通过<br><code>Student.prototype.constructor = Student</code>来将Person的constructor改为Student的constructor</li>
+<li>不可以向父类的构造函数传参</li>
+</ul>
+<h4 id="2-借用构造函数-解决传参问题"><a href="#2-借用构造函数-解决传参问题" class="headerlink" title="2. 借用构造函数(解决传参问题)"></a>2. 借用构造函数(解决传参问题)</h4><blockquote>
+<p>使用 call() 方法改变 this 的指向，实现属性继承<br>在子类中调用父类并用call()方法将 this 指向子类</p>
+</blockquote>
+<p><strong>代码演示</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">// 父类</span><br><span class="line">function Person(name,age) &#123;</span><br><span class="line">  this.name = name;</span><br><span class="line">  this.age = age;</span><br><span class="line">  this.sayHi = function()&#123;</span><br><span class="line">    console.log(&apos;大家好，我+this.name)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">Person.prototype.test = function()&#123;</span><br><span class="line">  console.log(&apos;今年&apos;+this.age)</span><br><span class="line">&#125;</span><br><span class="line">// 子类</span><br><span class="line">function Student(name,age,gender) &#123;</span><br><span class="line">  // 通过call()方法将 this 指向由 Person 改为 Student</span><br><span class="line">  // Student 继承 Person 的属性和定义在函数内部的方法</span><br><span class="line">  Person.call(this,name,age);   </span><br><span class="line">  this.gender = gender;</span><br><span class="line">&#125;</span><br><span class="line">let s1 = new Student(&apos;zs&apos;,14,&apos;男&apos;);</span><br><span class="line">console.log(s1)   // Student &#123;name: &quot;zs&quot;, age: 14, sayHi: ƒ, gender: &quot;男&quot;&#125;</span><br><span class="line">s1.sayHi();   // 大家好，我是zs</span><br><span class="line">// Person 原型对象上的方法不能被 Student 访问</span><br><span class="line">s1.test();   // 1.html:130 Uncaught TypeError: s1.test is not a function</span><br></pre></td></tr></table></figure>
+<p><strong>借用构造函数bug</strong></p>
+<ul>
+<li>子类只能继承函数内部的属性和方法，原型对象上的方法不能被继承</li>
+<li>为了避免方法的重复定义，将方法定义在原型上；但这样不能继承，要想继承，就定义在构造函数内部</li>
+</ul>
+<h4 id="3-复合继承-实现属性和方法的继承"><a href="#3-复合继承-实现属性和方法的继承" class="headerlink" title="3. 复合继承(实现属性和方法的继承)"></a>3. 复合继承(实现属性和方法的继承)</h4><ul>
+<li>复合继承 : 原型继承(继承方法) + 借用构造函数继承(继承属性)</li>
+<li>将父级的方法定义在原型对象上，通过原型继承，让子类拥有父类的方法</li>
+<li>将父级的属性定义在构造函数内部，通过call()方法，让子类拥有父类的属性</li>
+</ul>
+<p><strong>代码演示</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">// 父类</span><br><span class="line">function Person(name, age) &#123;</span><br><span class="line">  this.name = name;</span><br><span class="line">  this.age = age;</span><br><span class="line">  this.sayHi = function () &#123;</span><br><span class="line">    console.log(&apos;大家好，我是&apos; + this.name)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">Person.prototype.test = function () &#123;</span><br><span class="line">  console.log(&apos;今年&apos; + this.age)</span><br><span class="line">&#125;</span><br><span class="line">// 子类</span><br><span class="line">function Student(name, age, gender) &#123;</span><br><span class="line">  Person.call(this, name, age);   // 继承属性</span><br><span class="line">  this.gender = gender;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 父类的实例赋值给子类的原型对象</span><br><span class="line">Student.prototype = new Person();  // 继承方法</span><br><span class="line">Student.prototype.constructor = Student;</span><br><span class="line"></span><br><span class="line">let s1 = new Student(&apos;Tom&apos;, 18, 100)</span><br><span class="line">console.log(s1)  // Student &#123;name: &quot;Tom&quot;, age: 18, sayHi: ƒ, gender: 100&#125;</span><br><span class="line">s1.sayHi()  // 大家好，我是Tom</span><br><span class="line">s1.test()   // 今年18</span><br></pre></td></tr></table></figure>
+
           
         
       
@@ -1472,7 +1386,45 @@
       
         
           
-            
+            <p>#webpack</p>
+<h3 id="1-webpack概念"><a href="#1-webpack概念" class="headerlink" title="1. webpack概念"></a>1. webpack概念</h3><p>webpack 是一个模块打包器<br>webpack 的主要目标是将 JavaScript 文件打包在一起,打包后的文件用于在浏览器中使用,</p>
+<h3 id="2-webpack安装"><a href="#2-webpack安装" class="headerlink" title="2. webpack安装"></a>2. webpack安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cnpm install webpack -g</span><br><span class="line">cnpm install webpack-cli -g</span><br></pre></td></tr></table></figure>
+<h3 id="3-下载jquery"><a href="#3-下载jquery" class="headerlink" title="3. 下载jquery"></a>3. 下载jquery</h3><p>  在根目录下</p>
+<ul>
+<li>初始化文件夹<figure class="highlight plain"><figcaption><span>init -y```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">+ 下载jquery</span><br><span class="line"> ```npm install jquery@1.12.4 --save</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="4-创建main-js"><a href="#4-创建main-js" class="headerlink" title="4. 创建main.js"></a>4. 创建main.js</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import $ from &apos;jquery&apos;</span><br><span class="line">$(function () &#123;</span><br><span class="line">  $(&apos;li:odd&apos;).css(&apos;backgroundColor&apos;, &apos;yellow&apos;)</span><br><span class="line">  $(&apos;li:even&apos;).css(&apos;backgroundColor&apos;, &apos;red&apos;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="5-配置-webpack"><a href="#5-配置-webpack" class="headerlink" title="5. 配置 webpack"></a>5. 配置 webpack</h3><p><strong>webpack.config.js</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">const path = require(&apos;path&apos;)</span><br><span class="line">module.exports = &#123;</span><br><span class="line">  // 需要使用webpack打包的文件</span><br><span class="line">  entry: path.join(__dirname,&apos;./src/main.js&apos;),</span><br><span class="line">  output:&#123;</span><br><span class="line">    // 指定 打包好的文件，输model出到哪个目录中去</span><br><span class="line">    path:path.join(__dirname,&apos;./dist&apos;),</span><br><span class="line">    filename:&apos;main.js&apos;   // 输出的文件名称</span><br><span class="line">  &#125;,</span><br><span class="line">  mode:&quot;development&quot;,   // 代码是否要压缩  / development:不压缩</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>使用: 在控制台中输入 <strong>webpack</strong></p>
+<h3 id="6-webpack-dev-server"><a href="#6-webpack-dev-server" class="headerlink" title="6.  webpack-dev-server"></a>6.  webpack-dev-server</h3><p>  当代码有变化时，可以实时刷新，不需要每次去控制台中输入 webpack，</p>
+<p><strong>下载webpack-dev-server</strong><br><figure class="highlight plain"><figcaption><span>install webpack-dev-server --save-dev```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">**在文件夹中重新下载webpack**</span><br></pre></td></tr></table></figure></p>
+<p>npm i webpack -D<br>npm i webpack-cli -D<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">**配置 webpack-dev-server** </span><br><span class="line"> package.json文件中</span><br><span class="line"></span><br><span class="line">第一种方法</span><br></pre></td></tr></table></figure></p>
+<p>“scripts”: {<br>  “test”: “echo \”Error: no test specified\” &amp;&amp; exit 1”,<br>  “dev”: “webpack-dev-server –open –port 3000 –contentBase src –hot”<br>},<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">第二种方法</span><br></pre></td></tr></table></figure></p>
+<p>const webpack = require(‘webpack’)  // 启用热更新 第二步<br>devServer:{  // 配置dev-server 第二种方法<br>  open:true,  // 自动打开浏览器<br>  port:3000,  // 设置启用时运行端口<br>  contentBase:’src’,  // 指定托管的根目录<br>  hot:true    // 启用热更新 第一步<br>},<br>plugins:[  // 配置插件节点<br>  new webpack.HotModuleReplacementPlugin()  // 启用热更新 第三步<br>]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 7. html-webpack-plugin</span><br><span class="line">  在index.html中不需要引入script标签</span><br><span class="line"></span><br><span class="line">**下载html-webpack-plugin**</span><br><span class="line">```cnpm i html-webpack-plugin -D</span><br></pre></td></tr></table></figure></p>
+<p><strong>配置</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const htmlWebpackPlugin = require(&apos;html-webpack-plugin&apos;)</span><br><span class="line">plugins:[  // 配置插件节点</span><br><span class="line">  new htmlWebpackPlugin(&#123;  // index.html文件中不需要引入script</span><br><span class="line">    template:path.join(__dirname,&apos;./src/index.html&apos;),</span><br><span class="line">    filename: &apos;index.html&apos;</span><br><span class="line">  &#125;)</span><br><span class="line">]</span><br></pre></td></tr></table></figure></p>
+<h3 id="8-loader的使用"><a href="#8-loader的使用" class="headerlink" title="8. loader的使用"></a>8. loader的使用</h3><ul>
+<li><p>webpack只能够处理js文件，其他类型的文件都需要借助loader</p>
+</li>
+<li><p>css 文件 需要借助  <code>style-loader css-loader</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1. 先下载cnpm i style-loader css-loader -D</span><br><span class="line">2. 在 webpack.config.js配置</span><br><span class="line"> module: &#123;</span><br><span class="line">    rules: [</span><br><span class="line">      &#123; test: /\.css$/, use: [&apos;style-loader&apos;, &apos;css-loader&apos;] &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>less 文件 需要借助  <code>style-loader css-loader less-loader less</code></p>
+</li>
+<li><p>scss 文件 需要借助  <code>style-loader css-loader sass-loader node-sass</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">module: &#123;</span><br><span class="line">   rules: [</span><br><span class="line">     &#123; test: /\.css$/, use: [&apos;style-loader&apos;, &apos;css-loader&apos;] &#125;,</span><br><span class="line">     &#123; test: /\.less$/, use: [&apos;style-loader&apos;, &apos;css-loader&apos;, &apos;less-loader&apos;] &#125;,</span><br><span class="line">     &#123; test: /\.scss$/, use: [&apos;style-loader&apos;, &apos;css-loader&apos;, &apos;sass-loader&apos;] &#125;</span><br><span class="line">   ]</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>图片和 字体图标需要借助 <code>url-loader file-loader</code> 处理</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">module: &#123;</span><br><span class="line">  rules: [</span><br><span class="line">    &#123; test: /\.(jpg|png|gif|jpeg)$/, use: &apos;url-loader?limit=44998&amp;name=[hash:8]-[name].[ext]&apos; &#125;,</span><br><span class="line">    &#123; test: /\.(eot|svg|ttf|woff|woff2)$/, use: &apos;url-loader&apos; &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>webpack 只能够处理部分 js 高级语法， 所以将高级js语法转换成webpack能够处理语法的这件事， 要交给 <code>babel</code> 来处理，可以理解为 <code>babel</code> 是一个翻译公司， 将高级js语法，翻译成webpack能处理的js语法，公司的翻译工作要交给翻译小姐姐，也就是 目前 需要借助 <code>babel-loader @babel/core @babel/preset-env</code> 这几个插件来处理</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> 在webpack.config.js 文件配置</span><br><span class="line"> <span class="built_in">module</span>: &#123;</span><br><span class="line">    rules: [</span><br><span class="line">      &#123; <span class="attr">test</span>: <span class="regexp">/\.js$/</span>, <span class="attr">use</span>: <span class="string">'babel-loader'</span>, <span class="attr">exclude</span>: <span class="regexp">/node_modules/</span> &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line"><span class="number">2.</span> 在根目录创建 .babelrc 文件</span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"presets"</span>: [</span><br><span class="line">    <span class="string">"@babel/preset-env"</span></span><br><span class="line">  ],</span><br><span class="line">  <span class="string">"plugins"</span>: [</span><br><span class="line">    </span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br><span class="line"><span class="number">3.</span> 重新启动项目就可以了</span><br></pre></td></tr></table></figure>
+<ul>
+<li>vue结合webpack的项目里创建组件 普遍使用 <code>.vue</code> 文件来创建，而.vue文件 webpack又处理不了，所以此时，需要借助 vue-loader,而<code>vue-loader</code>依赖 <code>vue-template-compiler</code></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">1. 安装对应的loader 处理 .vue文件</span><br><span class="line">cnpm i vue-loader vue-template-compiler -D</span><br><span class="line">2. 配置文件</span><br><span class="line">module: &#123;</span><br><span class="line">    rules: [</span><br><span class="line">      &#123; test: /\.vue$/, use: &apos;vue-loader&apos; &#125;</span><br><span class="line">    ]</span><br><span class="line"> &#125;</span><br><span class="line"> 3. 在webpack.config.js 文件顶部导入 	`let VueLoaderPlugin = require(&apos;vue-loader/lib/plugin.js&apos;)`</span><br><span class="line"> 4. 配置文件</span><br><span class="line">  plugins: [</span><br><span class="line">    new VueLoaderPlugin()</span><br><span class="line">  ]</span><br><span class="line"> 5. 重启项目</span><br></pre></td></tr></table></figure></li>
+</ul>
+
           
         
       
@@ -1861,6 +1813,296 @@
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/18/jQuery/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="nimeiqq">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="nimqq">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/18/jQuery/" itemprop="url">jQuery</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-18T20:47:49+08:00">
+                2019-01-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/js/" itemprop="url" rel="index">
+                    <span itemprop="name">js</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>#jQuery</p>
+<blockquote>
+<p>jQuery是js的一个库，封装了我们开发过程中常用的一些功能<br>  代替原生js</p>
+</blockquote>
+<p>###使用jQuery<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">  //下载jQuery</span><br><span class="line">`npm install jquery`</span><br><span class="line">  // 引入jQuery</span><br><span class="line">&lt;script src=&quot;jquery-1.12.2.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">  // 页面加载完成之后</span><br><span class="line">$(function () &#123; &#125;)</span><br></pre></td></tr></table></figure></p>
+<p>###jQuery 和原生 Dom 之间转换</p>
+<ul>
+<li>Dom转换jQuery  –&gt;  $(Dom元素)</li>
+<li>jQuery转换Dom  –&gt;  $(btnObj).get[0]</li>
+</ul>
+<p>###1.5.1    jQuery选择器</p>
+<ul>
+<li><p>####基本选择器</p>
+<ul>
+<li><strong>id选择器</strong>         $(‘#box’)  </li>
+<li><strong>标签选择器</strong>       $(‘div’)   </li>
+<li><strong>类选择器</strong>         $(‘.cls’)</li>
+</ul>
+</li>
+<li><p>####层级选择器</p>
+<ul>
+<li><strong>后代选择器</strong>       $(‘#box li’)</li>
+<li><strong>子代选择器</strong>       $(‘#box&gt;li’)</li>
+</ul>
+</li>
+<li><p>####索引选择器</p>
+<ul>
+<li><strong>:eq(index)</strong><br>  $(“li:eq(2)”)  // 选择li元素中索引号为2的一个元素</li>
+<li><strong>:odd</strong><br>  $(“li:odd”)   // 选择li元素中索引号为奇数的所有元素</li>
+<li><strong>:even</strong><br>  $(“li:odd”) // 选择li元素中索引号为偶数</li>
+<li><strong>:gt(index)</strong><br>  $(“li:eq(2)”)   // 选择li元素中索引号大于2的一个元素</li>
+<li><strong>:lt(index)</strong><br>  $(“li:eq(2)”)   // 选择li元素中索引号小于2的一个元素</li>
+</ul>
+</li>
+<li><p>####选择元素</p>
+<ul>
+<li><strong>find()</strong><br>  $(“#box”).find(“li”)   // 查找指定元素的所有后代元素（子子孙孙）</li>
+<li><strong>children()</strong><br>  $(“#box”).children(“ul”)    查找指定元素的直接子元素（亲儿子元素）</li>
+<li><strong>siblings()</strong><br>  $(“#box”).siblings()  // 查找所有兄弟元素（不包括自己）</li>
+<li><strong>next()</strong><pre><code>$(&quot;#box&quot;).next()  // 查找下一个兄弟元素
+</code></pre></li>
+<li><strong>prev()</strong><br>  $(“#box”).prev()  // 查找上一个兄弟元素</li>
+<li><strong>index()</strong><br>  var index = $(this).index()   // 获取指定元素的索引号（从0开始的）</li>
+<li><strong>first()         last()</strong><br>获取第一个元素     获取最后个元素<br>  <code>$(&#39;li&#39;).first()   $(&#39;li&#39;).last()</code></li>
+<li><strong>hasClass(class)</strong><br>  检查当前的元素是否含有某个特定的类<br>  <code>$(this).hasClass(&quot;protected&quot;)</code></li>
+</ul>
+</li>
+</ul>
+<p>###属性</p>
+<ul>
+<li><p><strong>text()</strong> </p>
+<ul>
+<li>$(“#box”).text()        // 获取文本</li>
+<li>$(“#box”).text(“文本”)    // 设置文本</li>
+</ul>
+</li>
+<li><p><strong>html()</strong> </p>
+<ul>
+<li>$(“#box”).html()   // 获取文本</li>
+<li>$(“#box”).html(“文本”)   // 设置文本</li>
+</ul>
+</li>
+<li><p><strong>val()</strong> </p>
+<ul>
+<li>$(“#box”).val()   // 获取元素内容</li>
+<li>$(“#box”).val(“文本”)   // 设置元素内容</li>
+</ul>
+</li>
+<li><p><strong>css()</strong></p>
+<ul>
+<li>获取样式值<br>   $(#box).css(“样式名”)</li>
+<li>设置一个样式<br>   $(#box).css(“样式名”，”样式值”)  </li>
+<li>设置多个样式<br>   $(#box).css({ “样式名1”：”样式值1”，”样式名2”，”样式名2”})</li>
+</ul>
+</li>
+<li><p><strong>attr()</strong>        </p>
+<blockquote>
+<p>设置或返回被选元素的属性和值<br>attr()  值只可以为 string</p>
+</blockquote>
+<ol>
+<li>返回属性的值<br><code>$(selector).attr(属性)</code></li>
+<li>设置属性和值<br><code>$(selector).attr(属性,值)</code></li>
+<li>使用函数设置属性和值<br><code>$(selector).attr(属性,function(index,值))</code></li>
+</ol>
+</li>
+<li><p><strong>prop()</strong>  </p>
+<blockquote>
+<p>设置或返回被选元素的属性和值<br>prop()  值可以是 string 也可以是 arr</p>
+</blockquote>
+<ol>
+<li>返回属性的值<br><code>$(selector).prop(属性)</code></li>
+<li>设置属性和值<br><code>$(selector).prop(属性,值)</code></li>
+<li>使用函数设置属性和值<br><code>$(selector).prop(属性,function(index,值))</code></li>
+</ol>
+</li>
+<li><p><strong>addClass()</strong></p>
+<blockquote>
+<p> 给元素添加类名,以前的class依然存在</p>
+</blockquote>
+</li>
+</ul>
+<p><code>$(selector).addClass(类名)</code></p>
+<ul>
+<li><strong>removeClass()</strong><blockquote>
+<p> 删除元素指定类名</p>
+</blockquote>
+</li>
+</ul>
+<p><code>$(selector).removeClass(类名)</code></p>
+<ul>
+<li><strong>toggleClass</strong><blockquote>
+<p>如果元素有指定类则会删除；如果没有指定类则会添加</p>
+</blockquote>
+</li>
+</ul>
+<p><code>$(selector).toggleClass(类名)</code></p>
+<p>###文档处理</p>
+<ul>
+<li><p><strong>append()  appendTo()</strong><br>   被选中 元素内部 后面/前面 添加指定内容<br><code>$(父元素).append(需要插入内容)</code>    <code>$(需要插入内容).appendTo(父元素)</code></p>
+</li>
+<li><p><strong>prepend()  prependTo()</strong><br>   被选中 元素内部 后面/前面 添加指定内容<br><code>$(父元素).prepend(需要插入内容)</code></p>
+</li>
+<li><p><strong>after()  before()</strong><br>   被选中元素 结尾/前面 添加指定内容<br><code>$(元素).after(需要插入内容)</code>    <code>$(元素).before(需要插入内容)</code></p>
+<ul>
+<li><p><strong>insertAfter()  insertBefore()</strong><br> 把所有匹配的元素插入到另一个、指定的元素元素集合的后面/前面<br><code>$(&quot;p&quot;).insertAfter(&quot;#foo&quot;)</code>  <code>$(&quot;p&quot;).insertBefore(&quot;#foo&quot;)</code></p>
+</li>
+<li><p><strong>replaceWith()</strong><br> 将所有匹配的元素替换成指定的HTML或DOM元素。<br> <code>$(&quot;p&quot;).replaceWith(&quot;&lt;b&gt;Paragraph. &lt;/b&gt;&quot;);</code></p>
+</li>
+<li><strong>replaceAll()</strong><br> 用匹配的元素替换掉所有 selector匹配到的元素。<br> <code>$(&quot;&lt;b&gt;Paragraph. &lt;/b&gt;&quot;).replaceAll(&quot;p&quot;);</code></li>
+</ul>
+</li>
+</ul>
+<p>###事件</p>
+<ul>
+<li>change</li>
+</ul>
+<p>###动态添加元素</p>
+<ul>
+<li><p>原生   –&gt; </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var box = document.getElementById(&apos;box&apos;);</span><br><span class="line">box.appendChild(p)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>jQuery<br>var p = $(“</p><h1>动态添加</h1>“)<br>$(‘#box’).append(p)<p></p>
+</li>
+</ul>
+<p>###使用</p>
+<ul>
+<li>Dom   –&gt; Dom.onclick</li>
+<li>jQuery  –&gt; $(“元素”).on(“click”)</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
@@ -1913,7 +2155,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

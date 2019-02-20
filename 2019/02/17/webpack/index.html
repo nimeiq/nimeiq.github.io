@@ -79,15 +79,18 @@
 
 
 
+<meta name="description" content="#webpack 1. webpack概念webpack 是一个模块打包器webpack 的主要目标是将 JavaScript 文件打包在一起,打包后的文件用于在浏览器中使用, 2. webpack安装12cnpm install webpack -gcnpm install webpack-cli -g 3. 下载jquery  在根目录下  初始化文件夹init -y```12+ 下载jque">
 <meta name="keywords" content="webpack">
 <meta property="og:type" content="article">
 <meta property="og:title" content="webpack">
 <meta property="og:url" content="http://yoursite.com/2019/02/17/webpack/index.html">
 <meta property="og:site_name" content="nimqq">
+<meta property="og:description" content="#webpack 1. webpack概念webpack 是一个模块打包器webpack 的主要目标是将 JavaScript 文件打包在一起,打包后的文件用于在浏览器中使用, 2. webpack安装12cnpm install webpack -gcnpm install webpack-cli -g 3. 下载jquery  在根目录下  初始化文件夹init -y```12+ 下载jque">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-17T04:01:01.126Z">
+<meta property="og:updated_time" content="2019-02-20T08:11:07.205Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="webpack">
+<meta name="twitter:description" content="#webpack 1. webpack概念webpack 是一个模块打包器webpack 的主要目标是将 JavaScript 文件打包在一起,打包后的文件用于在浏览器中使用, 2. webpack安装12cnpm install webpack -gcnpm install webpack-cli -g 3. 下载jquery  在根目录下  初始化文件夹init -y```12+ 下载jque">
 
 
 
@@ -339,7 +342,45 @@
       
 
       
-        
+        <p>#webpack</p>
+<h3 id="1-webpack概念"><a href="#1-webpack概念" class="headerlink" title="1. webpack概念"></a>1. webpack概念</h3><p>webpack 是一个模块打包器<br>webpack 的主要目标是将 JavaScript 文件打包在一起,打包后的文件用于在浏览器中使用,</p>
+<h3 id="2-webpack安装"><a href="#2-webpack安装" class="headerlink" title="2. webpack安装"></a>2. webpack安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cnpm install webpack -g</span><br><span class="line">cnpm install webpack-cli -g</span><br></pre></td></tr></table></figure>
+<h3 id="3-下载jquery"><a href="#3-下载jquery" class="headerlink" title="3. 下载jquery"></a>3. 下载jquery</h3><p>  在根目录下</p>
+<ul>
+<li>初始化文件夹<figure class="highlight plain"><figcaption><span>init -y```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">+ 下载jquery</span><br><span class="line"> ```npm install jquery@1.12.4 --save</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="4-创建main-js"><a href="#4-创建main-js" class="headerlink" title="4. 创建main.js"></a>4. 创建main.js</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import $ from &apos;jquery&apos;</span><br><span class="line">$(function () &#123;</span><br><span class="line">  $(&apos;li:odd&apos;).css(&apos;backgroundColor&apos;, &apos;yellow&apos;)</span><br><span class="line">  $(&apos;li:even&apos;).css(&apos;backgroundColor&apos;, &apos;red&apos;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="5-配置-webpack"><a href="#5-配置-webpack" class="headerlink" title="5. 配置 webpack"></a>5. 配置 webpack</h3><p><strong>webpack.config.js</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">const path = require(&apos;path&apos;)</span><br><span class="line">module.exports = &#123;</span><br><span class="line">  // 需要使用webpack打包的文件</span><br><span class="line">  entry: path.join(__dirname,&apos;./src/main.js&apos;),</span><br><span class="line">  output:&#123;</span><br><span class="line">    // 指定 打包好的文件，输model出到哪个目录中去</span><br><span class="line">    path:path.join(__dirname,&apos;./dist&apos;),</span><br><span class="line">    filename:&apos;main.js&apos;   // 输出的文件名称</span><br><span class="line">  &#125;,</span><br><span class="line">  mode:&quot;development&quot;,   // 代码是否要压缩  / development:不压缩</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>使用: 在控制台中输入 <strong>webpack</strong></p>
+<h3 id="6-webpack-dev-server"><a href="#6-webpack-dev-server" class="headerlink" title="6.  webpack-dev-server"></a>6.  webpack-dev-server</h3><p>  当代码有变化时，可以实时刷新，不需要每次去控制台中输入 webpack，</p>
+<p><strong>下载webpack-dev-server</strong><br><figure class="highlight plain"><figcaption><span>install webpack-dev-server --save-dev```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">**在文件夹中重新下载webpack**</span><br></pre></td></tr></table></figure></p>
+<p>npm i webpack -D<br>npm i webpack-cli -D<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">**配置 webpack-dev-server** </span><br><span class="line"> package.json文件中</span><br><span class="line"></span><br><span class="line">第一种方法</span><br></pre></td></tr></table></figure></p>
+<p>“scripts”: {<br>  “test”: “echo \”Error: no test specified\” &amp;&amp; exit 1”,<br>  “dev”: “webpack-dev-server –open –port 3000 –contentBase src –hot”<br>},<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">第二种方法</span><br></pre></td></tr></table></figure></p>
+<p>const webpack = require(‘webpack’)  // 启用热更新 第二步<br>devServer:{  // 配置dev-server 第二种方法<br>  open:true,  // 自动打开浏览器<br>  port:3000,  // 设置启用时运行端口<br>  contentBase:’src’,  // 指定托管的根目录<br>  hot:true    // 启用热更新 第一步<br>},<br>plugins:[  // 配置插件节点<br>  new webpack.HotModuleReplacementPlugin()  // 启用热更新 第三步<br>]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 7. html-webpack-plugin</span><br><span class="line">  在index.html中不需要引入script标签</span><br><span class="line"></span><br><span class="line">**下载html-webpack-plugin**</span><br><span class="line">```cnpm i html-webpack-plugin -D</span><br></pre></td></tr></table></figure></p>
+<p><strong>配置</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const htmlWebpackPlugin = require(&apos;html-webpack-plugin&apos;)</span><br><span class="line">plugins:[  // 配置插件节点</span><br><span class="line">  new htmlWebpackPlugin(&#123;  // index.html文件中不需要引入script</span><br><span class="line">    template:path.join(__dirname,&apos;./src/index.html&apos;),</span><br><span class="line">    filename: &apos;index.html&apos;</span><br><span class="line">  &#125;)</span><br><span class="line">]</span><br></pre></td></tr></table></figure></p>
+<h3 id="8-loader的使用"><a href="#8-loader的使用" class="headerlink" title="8. loader的使用"></a>8. loader的使用</h3><ul>
+<li><p>webpack只能够处理js文件，其他类型的文件都需要借助loader</p>
+</li>
+<li><p>css 文件 需要借助  <code>style-loader css-loader</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1. 先下载cnpm i style-loader css-loader -D</span><br><span class="line">2. 在 webpack.config.js配置</span><br><span class="line"> module: &#123;</span><br><span class="line">    rules: [</span><br><span class="line">      &#123; test: /\.css$/, use: [&apos;style-loader&apos;, &apos;css-loader&apos;] &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>less 文件 需要借助  <code>style-loader css-loader less-loader less</code></p>
+</li>
+<li><p>scss 文件 需要借助  <code>style-loader css-loader sass-loader node-sass</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">module: &#123;</span><br><span class="line">   rules: [</span><br><span class="line">     &#123; test: /\.css$/, use: [&apos;style-loader&apos;, &apos;css-loader&apos;] &#125;,</span><br><span class="line">     &#123; test: /\.less$/, use: [&apos;style-loader&apos;, &apos;css-loader&apos;, &apos;less-loader&apos;] &#125;,</span><br><span class="line">     &#123; test: /\.scss$/, use: [&apos;style-loader&apos;, &apos;css-loader&apos;, &apos;sass-loader&apos;] &#125;</span><br><span class="line">   ]</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>图片和 字体图标需要借助 <code>url-loader file-loader</code> 处理</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">module: &#123;</span><br><span class="line">  rules: [</span><br><span class="line">    &#123; test: /\.(jpg|png|gif|jpeg)$/, use: &apos;url-loader?limit=44998&amp;name=[hash:8]-[name].[ext]&apos; &#125;,</span><br><span class="line">    &#123; test: /\.(eot|svg|ttf|woff|woff2)$/, use: &apos;url-loader&apos; &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>webpack 只能够处理部分 js 高级语法， 所以将高级js语法转换成webpack能够处理语法的这件事， 要交给 <code>babel</code> 来处理，可以理解为 <code>babel</code> 是一个翻译公司， 将高级js语法，翻译成webpack能处理的js语法，公司的翻译工作要交给翻译小姐姐，也就是 目前 需要借助 <code>babel-loader @babel/core @babel/preset-env</code> 这几个插件来处理</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> 在webpack.config.js 文件配置</span><br><span class="line"> <span class="built_in">module</span>: &#123;</span><br><span class="line">    rules: [</span><br><span class="line">      &#123; <span class="attr">test</span>: <span class="regexp">/\.js$/</span>, <span class="attr">use</span>: <span class="string">'babel-loader'</span>, <span class="attr">exclude</span>: <span class="regexp">/node_modules/</span> &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line"><span class="number">2.</span> 在根目录创建 .babelrc 文件</span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"presets"</span>: [</span><br><span class="line">    <span class="string">"@babel/preset-env"</span></span><br><span class="line">  ],</span><br><span class="line">  <span class="string">"plugins"</span>: [</span><br><span class="line">    </span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br><span class="line"><span class="number">3.</span> 重新启动项目就可以了</span><br></pre></td></tr></table></figure>
+<ul>
+<li>vue结合webpack的项目里创建组件 普遍使用 <code>.vue</code> 文件来创建，而.vue文件 webpack又处理不了，所以此时，需要借助 vue-loader,而<code>vue-loader</code>依赖 <code>vue-template-compiler</code></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">1. 安装对应的loader 处理 .vue文件</span><br><span class="line">cnpm i vue-loader vue-template-compiler -D</span><br><span class="line">2. 配置文件</span><br><span class="line">module: &#123;</span><br><span class="line">    rules: [</span><br><span class="line">      &#123; test: /\.vue$/, use: &apos;vue-loader&apos; &#125;</span><br><span class="line">    ]</span><br><span class="line"> &#125;</span><br><span class="line"> 3. 在webpack.config.js 文件顶部导入 	`let VueLoaderPlugin = require(&apos;vue-loader/lib/plugin.js&apos;)`</span><br><span class="line"> 4. 配置文件</span><br><span class="line">  plugins: [</span><br><span class="line">    new VueLoaderPlugin()</span><br><span class="line">  ]</span><br><span class="line"> 5. 重启项目</span><br></pre></td></tr></table></figure></li>
+</ul>
+
       
     </div>
     
@@ -433,8 +474,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -451,7 +501,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -496,6 +546,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-webpack概念"><span class="nav-number">1.</span> <span class="nav-text">1. webpack概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-webpack安装"><span class="nav-number">2.</span> <span class="nav-text">2. webpack安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-下载jquery"><span class="nav-number">3.</span> <span class="nav-text">3. 下载jquery</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-创建main-js"><span class="nav-number">4.</span> <span class="nav-text">4. 创建main.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-配置-webpack"><span class="nav-number">5.</span> <span class="nav-text">5. 配置 webpack</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-webpack-dev-server"><span class="nav-number">6.</span> <span class="nav-text">6.  webpack-dev-server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-loader的使用"><span class="nav-number">7.</span> <span class="nav-text">8. loader的使用</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
